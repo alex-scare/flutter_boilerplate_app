@@ -6,9 +6,11 @@ Template with basic boilerplate code for Flutter apps
 
 Complete steps below for easily start coding your own app
 
-0. fork this repo
-1. replace all `template_app` with your `app_name` using IDE tools
-2. add all tokens if your need
+0. create new repo using this repo as template
+1. clone repo to your device
+2. run `flutter create .` in repo directory
+3. replace all `template_app` with your `app_name` using IDE tools
+4. add all tokens if your need
    1. `goggle_api_key.json` - google clouds service key. used for translating your app localization texts.
 
 That's all, enjoy!

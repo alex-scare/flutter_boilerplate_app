@@ -33,7 +33,6 @@ dependencies:
   googleapis: ^11.0.0
   googleapis_auth: ^1.4.0
   lottie: ^2.6.0
-  fluttertoast: ^8.2.1
   flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
