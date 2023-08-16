@@ -41,6 +41,7 @@ That's all, enjoy!
   - all texts stored in `assets/translations/source.csv`
   - run `make locale` for translation all your texts, generate JSON files, generate static keys. If you want to do only part of this actions, check `Makefile`
 - `isar` for local database. Its like `hive`, written by their authors, but much better (it's not my opinion, but `hive/isar` author opinion)
+  - use `base_repository` for creating new repositories with predefined methods
 - `go_router` for app routing
 - `logger` for logging
 - `flex_color_scheme` for theming
