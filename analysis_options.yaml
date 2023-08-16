@@ -1,0 +1,19 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    avoid_print: true
+    avoid_empty_else: true
+    avoid_dynamic_calls: true
+    prefer_single_quotes: true
+    require_trailing_commas: true
+    prefer_foreach: true
+    always_use_package_imports: true # replace relative imports with package imports
+    directives_ordering: true # sort imports
+    avoid_slow_async_io: true # some async methods in dart:io are slower than their sync counterparts
+    avoid_type_to_string: true
+    avoid_types_as_parameter_names: true
+    invalid_case_patterns: true
+    avoid_relative_lib_imports: true
+    always_declare_return_types: true
+    avoid_void_async: true

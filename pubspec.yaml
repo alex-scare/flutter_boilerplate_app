@@ -1,0 +1,79 @@
+name: template_app
+publish_to: "none"
+version: 0.0.1+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.2.0
+  go_router: ^10.0.0
+  riverpod: ^2.3.6
+  hooks_riverpod: ^2.3.6
+  freezed_annotation: ^2.4.1
+  path_provider: ^2.0.15
+  google_fonts: ^5.1.0
+  provider: ^6.0.5
+  logger: ^1.4.0
+  flutter_hooks: ^0.18.6
+  share_plus: ^7.0.2
+  flex_color_scheme: ^7.1.2
+  flutter_native_splash: ^2.3.1
+  easy_localization: ^3.0.2
+  isar: ^3.1.0
+  isar_flutter_libs: ^3.1.0
+  visibility_detector: ^0.3.3
+  bottom_sheet: ^3.1.2
+  package_info_plus: ^4.0.2
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.7
+  shared_preferences: ^2.2.0
+  googleapis: ^11.0.0
+  googleapis_auth: ^1.4.0
+  lottie: ^2.6.0
+  fluttertoast: ^8.2.1
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  freezed: ^2.3.5
+  build_runner: ^2.4.6
+  isar_generator: ^3.1.0+1
+  args: ^2.4.2
+  csv: ^5.0.2
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/translations/
+    - assets/lottie/
+    - assets/images/
+    - assets/icons/
+
+  # fonts:
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_launcher_icon.png"
+  image_path_ios: "assets/images/app_launcher_icon_ios.png"
+  min_sdk_android: 16
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/images/app_launcher_icon.png"
+  android_gravity: center
+  ios_content_mode: scaleAspectFit
