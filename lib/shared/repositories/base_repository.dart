@@ -1,16 +1,11 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:isar/isar.dart';
-import 'package:template_app/services/dev_logger/dev_logger.dart';
 import 'package:template_app/services/isar/isar_service.dart';
 
 class BaseRepository<CollectionType> {
-  ProviderRef ref;
   late Future<Isar> isar;
-  late DevLogger log;
 
-  BaseRepository(this.ref, String logGroup) {
-    isar = ref.read(isarPod.future);
-    log = DevLogger(logGroup);
+  BaseRepository() {
+    isar = IsarService().isar;
   }
 
   Stream<List<CollectionType>> listenAll() async* {

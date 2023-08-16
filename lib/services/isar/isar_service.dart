@@ -1,27 +1,36 @@
 import 'dart:io';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:isar/isar.dart';
 import 'package:template_app/services/dev_logger/dev_logger.dart';
 import 'package:template_app/services/file_system/file_system_service.dart';
-
-final _log = DevLogger('isar');
-const isarDirName = 'isar';
 
 const List<CollectionSchema> _isarSchemas = [
   // place your schemas here
 ];
 
-final FutureProvider<Isar> isarPod = FutureProvider((ref) async {
-  final dir = await FileSystemService.getDocumentsDirectory();
-  final isarDir = Directory('${dir.path}/$isarDirName');
+class IsarService {
+  static const isarDirName = 'isar';
+  final _log = DevLogger('isar');
 
-  if (!isarDir.existsSync()) {
-    isarDir.createSync();
+  // singleton boilerplate
+  static final IsarService _singleton = IsarService._internal();
+  factory IsarService() => _singleton;
+  IsarService._internal() {
+    isar = _initIsar();
   }
+  // end singleton boilerplate
 
-  final isar = Isar.openSync(_isarSchemas, directory: isarDir.path);
+  late Future<Isar> isar;
 
-  _log.info('service started');
-  return isar;
-});
+  Future<Isar> _initIsar() async {
+    final dir = await FileSystemService.getDocumentsDirectory();
+    final isarDir = Directory('${dir.path}/$isarDirName');
+
+    if (!isarDir.existsSync()) {
+      isarDir.createSync();
+    }
+
+    _log.info('service started');
+    return Isar.openSync(_isarSchemas, directory: isarDir.path);
+  }
+}
