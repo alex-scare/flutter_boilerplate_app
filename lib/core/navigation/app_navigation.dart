@@ -1,6 +1,7 @@
 import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:template_app/core/navigation/app_navigation_observers.dart';
 import 'package:template_app/core/navigation/app_route.dart';
 import 'package:template_app/core/navigation/tab_navigation_scaffold.dart';
 import 'package:template_app/features/home/home_screen.dart';
@@ -29,11 +30,13 @@ class AppNavigation {
   GoRouter _createRouter() {
     return GoRouter(
       navigatorKey: globalRouteKey,
+      observers: [AppNavigationObserver()],
       initialLocation: '/',
       routes: [
         ...routes.map((route) => route.route(globalRouteKey)).toList(),
         ShellRoute(
           navigatorKey: tabRouteKey,
+          observers: [AppNavigationObserver()],
           routes: tabRoutes.map((route) => route.route(tabRouteKey)).toList(),
           builder: (context, state, child) {
             return TabNavigationScaffold(
