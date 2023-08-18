@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:template_app/shared/components/loading.dart';
 import 'package:template_app/shared/pub/global_state.dart';
+import 'package:template_app/shared/widgets/loading.dart';
 
 class GlobalLoadingHandler extends StatelessWidget {
   final Widget child;
