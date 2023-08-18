@@ -12,6 +12,12 @@ enum RouteName {
   home,
   settings,
   ;
+
+  String get path => switch (this) {
+        initial => '/',
+        home => '/home',
+        settings => '/settings',
+      };
 }
 
 class AppNavigation {
@@ -31,7 +37,7 @@ class AppNavigation {
     return GoRouter(
       navigatorKey: globalRouteKey,
       observers: [AppNavigationObserver()],
-      initialLocation: '/',
+      initialLocation: RouteName.initial.path,
       routes: [
         ...routes.map((route) => route.route(globalRouteKey)).toList(),
         ShellRoute(
@@ -53,22 +59,22 @@ class AppNavigation {
   final List<AppRoute> routes = [
     AppRoute(
       name: RouteName.initial,
-      path: '/',
-      redirectCheck: (_, __) => '/home',
+      path: RouteName.initial.path,
+      redirectCheck: (_, __) => RouteName.home.path,
     ),
   ];
 
   final List<AppRoute> tabRoutes = [
     AppRoute(
       name: RouteName.home,
-      path: '/home',
+      path: RouteName.home.path,
       icon: Icons.home,
       transitionType: PageTransitionType.instant,
       builder: (_, __) => const HomeScreen(),
     ),
     AppRoute(
       name: RouteName.settings,
-      path: '/settings',
+      path: RouteName.settings.path,
       icon: Icons.settings,
       transitionType: PageTransitionType.instant,
       builder: (_, __) => const SettingsScreen(),
