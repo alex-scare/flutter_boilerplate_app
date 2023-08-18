@@ -55,36 +55,12 @@ class AppRoute {
     return switch (transitionType) {
       PageTransitionType.cupertino => null,
       PageTransitionType.instant => (context, state) {
-          return InstantTransitionPage(child: builder!(context, state));
+          return NoTransitionPage(
+            child: builder!(context, state),
+            name: state.name,
+            key: state.pageKey,
+          );
         },
     };
-  }
-}
-
-class InstantTransitionPage extends Page {
-  final Widget child;
-
-  InstantTransitionPage({required this.child}) : super(key: ValueKey(child));
-
-  @override
-  Route createRoute(BuildContext context) {
-    return PageRouteBuilder(
-      settings: this,
-      pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-      ) {
-        return child;
-      },
-      transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-      ) {
-        return child;
-      },
-    );
   }
 }
