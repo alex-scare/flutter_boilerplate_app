@@ -44,6 +44,7 @@ That's all, enjoy!
   - use `base_repository` for creating new repositories with predefined methods
 - `go_router` for app routing
 - `logger` for logging
+  - by default logging is read as enabled from shared_preferences. Don't forget update this
 - `flex_color_scheme` for theming
 - `google_fonts` for using any google font
 - `freezed` for models code generation
