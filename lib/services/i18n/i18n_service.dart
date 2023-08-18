@@ -1,18 +1,25 @@
 import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/services.dart';
 import 'package:template_app/services/dev_logger/dev_logger.dart';
 
 class I18nService {
   static final _log = DevLogger('i18n');
+  static const String basePath = 'assets/translations';
 
-  static final I18nService _singleton = I18nService._internal();
-  factory I18nService() => _singleton;
-  I18nService._internal() {
-    _initCustomLogger();
+  static Locale get defaultLocale => const Locale('en', 'US');
+
+  static List<Locale> supportedLocales = [defaultLocale];
+
+  static Future<void> init() async {
+    _configureLogger();
+
+    supportedLocales = await _loadAvailableLocales();
+    await EasyLocalization.ensureInitialized();
   }
 
-  void _initCustomLogger() {
+  static void _configureLogger() {
     EasyLocalization.logger.printer = (
       Object object, {
       name,
@@ -38,20 +45,20 @@ class I18nService {
     };
   }
 
-  static const (String, String) _en = ('en', 'US');
-  // static const (String, String) _ru = ('ru', 'RU');
-  // static const (String, String) _de = ('de', 'DE');
+  static Future<List<Locale>> _loadAvailableLocales() async {
+    final source =
+        await rootBundle.loadString('assets/translations/source.csv');
 
-  static const (String, String) defaultLocaleString = _en;
+    final localesStrings = source.split('\n').first.split(',').skip(1);
+    final pattern = RegExp(r'^"[a-z]{2}-[A-Z]{2}"$');
 
-  static const List<(String, String)> supportedLocaleStrings = [
-    _en,
-  ];
+    if (localesStrings.any((str) => !pattern.hasMatch(str))) {
+      throw 'At least one of locales in source.csv has incorrect pattern';
+    }
 
-  String basePath = 'assets/translations';
-
-  Locale get defaultLocale =>
-      Locale(defaultLocaleString.$1, defaultLocaleString.$2);
-  List<Locale> get supportedLocales =>
-      supportedLocaleStrings.map((e) => Locale(e.$1, e.$2)).toList();
+    return localesStrings.map((locale) {
+      final [languageCode, countryCode] = locale.substring(1, 6).split('-');
+      return Locale(languageCode, countryCode);
+    }).toList();
+  }
 }

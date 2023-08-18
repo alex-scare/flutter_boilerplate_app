@@ -10,9 +10,9 @@ class GlobalI18nHandler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(
-      supportedLocales: I18nService().supportedLocales,
-      fallbackLocale: I18nService().defaultLocale,
-      path: I18nService().basePath,
+      supportedLocales: I18nService.supportedLocales,
+      fallbackLocale: I18nService.defaultLocale,
+      path: I18nService.basePath,
       child: child,
     );
   }

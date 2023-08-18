@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -7,6 +6,7 @@ import 'package:template_app/core/theme/theme.dart';
 import 'package:template_app/features/app/app.dart';
 import 'package:template_app/services/dev_logger/dev_logger.dart';
 import 'package:template_app/services/i18n/global_i18n_handler.dart';
+import 'package:template_app/services/i18n/i18n_service.dart';
 
 final log = DevLogger('root');
 
@@ -19,7 +19,7 @@ void main() async {
 
   SystemChrome.setSystemUIOverlayStyle(AppTheme.overlayStyleLight);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await EasyLocalization.ensureInitialized();
+  await I18nService.init();
 
   runApp(const ProviderScope(child: GlobalI18nHandler(child: App())));
 }
