@@ -3,7 +3,7 @@ locale: locale_translate locale_csv_format locale_jsons locale_keys
 
 # Translate localization texts (only lines without some values will be translated)
 locale_translate: 
-	dart scripts/i18n/localization_translate.dart -s assets/translations/source.csv --g_cloud_app_name karteto-app
+	dart scripts/i18n/localization_translate.dart -s assets/translations/source.csv --g_cloud_app_name your_app_name
 
 # Fix value wrapping in csv file
 locale_csv_format: 
