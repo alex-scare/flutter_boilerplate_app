@@ -12,6 +12,7 @@ Complete steps below for easily start coding your own app
 3. replace all `template_app` and `Template App` with your `app_name` using IDE tools
 4. add all tokens if your need
    1. `goggle_api_key.json` - google clouds service key. used for translating your app localization texts.
+5. upgrade `.vscode/launch.json` with your own device ids
 
 That's all, enjoy!
 
