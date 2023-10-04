@@ -9,7 +9,7 @@ Complete steps below for easily start coding your own app
 0. create new repo using this repo as template
 1. clone repo to your device
 2. run `flutter create .` in repo directory
-3. replace all `template_app` with your `app_name` using IDE tools
+3. replace all `template_app` and `Template App` with your `app_name` using IDE tools
 4. add all tokens if your need
    1. `goggle_api_key.json` - google clouds service key. used for translating your app localization texts.
 
