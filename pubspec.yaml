@@ -9,23 +9,23 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_animate: ^4.2.0
-  go_router: ^10.0.0
+  go_router: ^11.1.2
   riverpod: ^2.3.6
   hooks_riverpod: ^2.3.6
   freezed_annotation: ^2.4.1
   path_provider: ^2.0.15
-  google_fonts: ^5.1.0
+  google_fonts: ^6.1.0
   provider: ^6.0.5
-  logger: ^1.4.0
-  flutter_hooks: ^0.18.6
+  logger: ^2.0.2+1
+  flutter_hooks: ^0.20.2
   share_plus: ^7.0.2
   flex_color_scheme: ^7.1.2
   flutter_native_splash: ^2.3.1
   easy_localization: ^3.0.2
   isar: ^3.1.0
   isar_flutter_libs: ^3.1.0
-  visibility_detector: ^0.3.3
-  bottom_sheet: ^3.1.2
+  visibility_detector: ^0.4.0+2
+  bottom_sheet: ^4.0.0
   package_info_plus: ^4.0.2
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7

@@ -3,8 +3,12 @@
 # keys and tokens
 google_api_key.json
 
+# core part
+.fvm/flutter_sdk
 
-# default below
+#
+# DEFAULT BELOW
+#
 
 # Miscellaneous
 *.class

@@ -51,7 +51,7 @@ class DevLogger {
     if (!DevLogger.loggerEnabled) return;
 
     final message = '\n' * lines;
-    logger.i(message, null, StackTrace.empty);
+    logger.i(message, error: null, stackTrace: StackTrace.empty);
   }
 
   Future<void> infoWithDelimiters(String message) async {
@@ -62,21 +62,33 @@ class DevLogger {
     final suffix = '-' * 10;
     final messageString = '$suffix$message$suffix'.padRight(70, '-');
 
-    logger.i('$date $_groupName $messageString', null, StackTrace.empty);
+    logger.i(
+      '$date $_groupName $messageString',
+      error: null,
+      stackTrace: StackTrace.empty,
+    );
   }
 
   Future<void> debug(String message) async {
     if (kDebugMode == false) return;
 
     final logger = await _loggerFuture;
-    logger.d(_createMessage(message), null, StackTrace.empty);
+    logger.d(
+      _createMessage(message),
+      error: null,
+      stackTrace: StackTrace.empty,
+    );
   }
 
   Future<void> info(String message) async {
     final logger = await _loggerFuture;
     if (!DevLogger.loggerEnabled) return;
 
-    logger.i(_createMessage(message), null, StackTrace.empty);
+    logger.i(
+      _createMessage(message),
+      error: null,
+      stackTrace: StackTrace.empty,
+    );
   }
 
   Future<void> warning(
@@ -87,7 +99,7 @@ class DevLogger {
     final logger = await _loggerFuture;
     if (!loggerEnabled) return;
 
-    logger.w(_createMessage(message), error, stack);
+    logger.w(_createMessage(message), error: error, stackTrace: stack);
   }
 
   Future<void> error(
@@ -98,7 +110,7 @@ class DevLogger {
     final logger = await _loggerFuture;
     if (!loggerEnabled) return;
 
-    logger.e(_createMessage(message), error, stack);
+    logger.e(_createMessage(message), error: error, stackTrace: stack);
   }
 
   Future<void> wtf(
@@ -109,7 +121,7 @@ class DevLogger {
     final logger = await _loggerFuture;
     if (!loggerEnabled) return;
 
-    logger.wtf(_createMessage(message), error, stack);
+    logger.f(_createMessage(message), error: error, stackTrace: stack);
   }
 
   static void _logFilePath(File file) {
