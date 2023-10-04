@@ -2,6 +2,7 @@
 
 # keys and tokens
 google_api_key.json
+.env
 
 # core part
 .fvm/flutter_sdk
